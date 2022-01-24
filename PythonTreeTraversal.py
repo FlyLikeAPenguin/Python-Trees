@@ -29,9 +29,11 @@ def main():
     root.right.right.right = BinaryTreeNode(None, None, 7)
     root.right.right.right.left = BinaryTreeNode(None, None, 12)
     root.right.right.right.right = BinaryTreeNode(None, None, 11)
+
     values = []
     in_order(root, values)
     print(values)
+    # Outputs: [9, 1, 13, 2, 10, 4, 8, 6, 5, 3, 12, 7, 11]
 
 
 if __name__ == "__main__":
