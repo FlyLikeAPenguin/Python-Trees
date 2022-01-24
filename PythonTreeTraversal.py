@@ -12,8 +12,22 @@ def in_order(node, values):
     if node == None: 
         return
     in_order(node.left, values) #Left
-    values.append(node.value) #Visit
+    values.append(node.value) #Visit/Root
     in_order(node.right, values) #Right
+
+def pre_order(node, values):
+    if node == None: 
+        return
+    values.append(node.value) #Visit/Root
+    pre_order(node.left, values) #Left
+    pre_order(node.right, values) #Right
+
+def post_order(node, values):
+    if node == None: 
+        return
+    post_order(node.left, values) #Left
+    post_order(node.right, values) #Right
+    values.append(node.value) #Visit/Root
 
 def main():
     root = BinaryTreeNode(None, None, 4)
@@ -34,6 +48,16 @@ def main():
     in_order(root, values)
     print(values)
     # Outputs: [9, 1, 13, 2, 10, 4, 8, 6, 5, 3, 12, 7, 11]
+
+    values = []
+    pre_order(root, values)
+    print(values)
+    # Outputs: [4, 2, 1, 9, 13, 10, 6, 8, 3, 5, 7, 12, 11]
+
+    values = []
+    post_order(root, values)
+    print(values)
+    # Outputs: [9, 13, 1, 10, 2, 8, 5, 12, 11, 7, 3, 6, 4]
 
 
 if __name__ == "__main__":
